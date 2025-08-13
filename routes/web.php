@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ArticleAdminController;
+use App\Http\Controllers\Guest\ArticleController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,8 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('/', [ArticleController::class, 'index'])->name('guest.index');
 
 Route::prefix('admin')
     ->name('admin.')
