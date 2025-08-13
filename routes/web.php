@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticleAdminController;
+use App\Http\Controllers\Guest\ArticleController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +24,17 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('/', [ArticleController::class, 'index'])->name('guest.index');
+
+Route::prefix('admin')
+    ->name('admin.')
+    // ->middleware(['auth']) // enable when you wire auth
+    ->group(function () {
+        Route::get('/articles/create', [ArticleAdminController::class, 'create'])->name('articles.create');
+        Route::post('/articles', [ArticleAdminController::class, 'store'])->name('articles.store');
+        Route::get('/articles', [ArticleAdminController::class, 'index'])->name('articles.index');
+    });
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

@@ -15,7 +15,7 @@ defineProps({
     <div class="flex flex-col min-h-screen bg-white">
         <!-- Navbar -->
         <header class="p-4 flex justify-between items-center border-b dark:border-gray-700">
-            <Link href="/" class="text-lg font-bold text-gray-800 dark:text-gray-200">
+            <Link href="/" class="text-lg font-bold text-white-100 dark:text-white-100">
                 HTMU
             </Link>
 
