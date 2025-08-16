@@ -16,7 +16,6 @@ class Article extends Model implements HasMedia
         'title',
         'description',
         'date',
-        'image',
     ];
 
     protected $casts = [

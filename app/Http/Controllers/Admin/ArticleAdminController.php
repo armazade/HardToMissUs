@@ -48,4 +48,18 @@ class ArticleAdminController extends Controller
             'imageUrl' => $article->getFirstMediaUrl('images'),
         ]);
     }
+
+    public function update(ArticleUpdateRequest $request, Article $article)
+    {
+        $validated = $request->validated();
+
+        $article->update(attributes: $validated);
+
+        if ($request->hasFile('image')) {
+            $article->clearMediaCollection('images');
+            $article->addMediaFromRequest('image')->toMediaCollection('images');
+        }
+
+        return redirect()->route('admin.article.index')->with('success', 'Article updated successfully.');
+    }
 }
