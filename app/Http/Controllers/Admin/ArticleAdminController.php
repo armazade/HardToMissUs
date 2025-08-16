@@ -30,8 +30,22 @@ class ArticleAdminController extends Controller
 
         $article = Article::create($validated);
 
+        if ($request->hasFile('image')) {
+            $article
+                ->addMediaFromRequest('image')
+                ->toMediaCollection('images', 'public');
+        }
+
         return redirect()
             ->route('admin.articles.index')
             ->with('success', 'Article created!');
+    }
+
+    public function show(Article $article)
+    {
+        return Inertia::render('Admin/Article/Show', [
+            'article' => $article,
+            'imageUrl' => $article->getFirstMediaUrl('images'),
+        ]);
     }
 }
