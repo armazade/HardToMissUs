@@ -1,10 +1,11 @@
 <script setup>
-import { computed } from 'vue';
 import Layout from "@/Layouts/Layout.vue";
+import {Link} from "@inertiajs/vue3";
 
 defineProps({
-  articles: Array,
-});
+    articles: Object,
+    imageUrl: String,
+})
 
 </script>
 
@@ -23,8 +24,19 @@ defineProps({
               class="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow duration-200 h-96"
           >
             <div class="p-4 flex flex-col h-full">
-              <h3 class="text-lg font-semibold mb-2">{{ article.title }}</h3>
-              <p class="text-black-700  flex-grow">{{ article.description }}</p>
+                <Link
+                    :href="route('guest.article.show', article.id)"
+                    class="block"
+                >
+                    <img
+                        v-if="article.imageUrl"
+                        :src="article.imageUrl"
+                        alt="Article Image"
+                        class="w-full h-40 object-cover mb-4"
+                    />
+                  <h3 class="text-lg font-semibold mb-2">{{ article.title }}</h3>
+                  <p class="text-black-700  flex-grow">{{ article.description }}</p>
+                </Link>
             </div>
           </div>
         </div>
