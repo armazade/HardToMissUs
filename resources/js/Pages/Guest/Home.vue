@@ -1,11 +1,11 @@
 <script setup>
-import { computed } from 'vue';
 import Layout from "@/Layouts/Layout.vue";
 import {Link} from "@inertiajs/vue3";
 
 defineProps({
-  articles: Array,
-});
+    articles: Object,
+    imageUrl: String,
+})
 
 </script>
 
@@ -28,6 +28,9 @@ defineProps({
                     :href="route('guest.article.show', article.id)"
                     class="block"
                 >
+                    <div v-if="imageUrl">
+                        <img :src="imageUrl" alt="Article image" class="mt-4 rounded shadow w-64 h-auto"/>
+                    </div>
                   <h3 class="text-lg font-semibold mb-2">{{ article.title }}</h3>
                   <p class="text-black-700  flex-grow">{{ article.description }}</p>
                 </Link>

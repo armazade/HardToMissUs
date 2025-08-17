@@ -18,7 +18,7 @@ class ArticleController extends Controller
 
     public function show(Article $article)
     {
-        return Inertia::render('Guest/Article', [
+        return Inertia::render('Guest/Show', [
             'article' => $article,
             'imageUrl' => $article->getFirstMediaUrl('images')
         ]);
