@@ -28,9 +28,12 @@ defineProps({
                     :href="route('guest.article.show', article.id)"
                     class="block"
                 >
-                    <div v-if="imageUrl">
-                        <img :src="imageUrl" alt="Article image" class="mt-4 rounded shadow w-64 h-auto"/>
-                    </div>
+                    <img
+                        v-if="article.imageUrl"
+                        :src="article.imageUrl"
+                        alt="Article Image"
+                        class="w-full h-40 object-cover mb-4"
+                    />
                   <h3 class="text-lg font-semibold mb-2">{{ article.title }}</h3>
                   <p class="text-black-700  flex-grow">{{ article.description }}</p>
                 </Link>
