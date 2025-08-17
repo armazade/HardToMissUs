@@ -21,6 +21,7 @@ class ArticleUpdateRequest extends FormRequest
             'title'       => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
             'date'        => ['required', 'date'],
+            'image'       => ['nullable', 'image', 'max:500000'],
         ];
     }
 }

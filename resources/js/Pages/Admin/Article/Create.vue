@@ -10,6 +10,7 @@ const form = useForm({
     title: '',
     description: '',
     date: '',
+    image: null,
 })
 
 const submit = () => {
@@ -67,6 +68,11 @@ const submit = () => {
                 <InputError class="mt-2" :message="form.errors.date" />
             </div>
 
+            <div>
+                <InputLabel for="image" value="Article Image"/>
+                <input id="image" type="file" @change="e => form.image = e.target.files[0]"/>
+                <InputError :message="form.errors.image" class="mt-2"/>
+            </div>
 
             <div class="flex justify-end">
                 <PrimaryButton
