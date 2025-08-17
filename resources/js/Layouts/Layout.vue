@@ -19,6 +19,10 @@ defineProps({
                 HTMU
             </Link>
 
+            <h1 class="max-w-2xl mx-auto text-2xl font-bold text-center mb-5 ">
+                Hard To Miss Us
+            </h1>
+
             <nav>
                 <template v-if="canLogin">
                     <template v-if="auth?.user">
