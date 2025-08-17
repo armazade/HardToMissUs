@@ -26,6 +26,7 @@ Route::get('/', function () {
 });
 
 Route::get('/', [ArticleController::class, 'index'])->name('guest.index');
+Route::get('/article/{article}', [ArticleController::class, 'show'])->name('guest.article.show');
 
 Route::prefix('admin')
     ->name('admin.')

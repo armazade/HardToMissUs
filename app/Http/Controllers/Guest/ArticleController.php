@@ -15,4 +15,12 @@ class ArticleController extends Controller
             'articles' => $articles,
         ]);
     }
+
+    public function show(Article $article)
+    {
+        return Inertia::render('Guest/Article', [
+            'article' => $article,
+            'imageUrl' => $article->getFirstMediaUrl('images')
+        ]);
+    }
 }
