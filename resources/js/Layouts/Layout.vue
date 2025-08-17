@@ -19,7 +19,7 @@ defineProps({
                 HTMU
             </Link>
 
-            <h1 class="max-w-2xl mx-auto text-2xl font-bold text-center mb-5 ">
+            <h1 class="max-w-2xl mx-auto text-2xl font-bold text-center">
                 Hard To Miss Us
             </h1>
 
