@@ -37,7 +37,6 @@ defineProps({
             </div>
           </div>
         </div>
-        <!-- Optionally, add pagination for more articles -->
       </div>
     </div>
   </Layout>
